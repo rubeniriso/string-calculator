@@ -9,11 +9,18 @@ class StringCalculator
         if($number != ""){
             if (($number[0]) == "/" && ($number[1]) == "/"){
                 $lineJumpPosition = strpos($number, "\n");
-                $delimiter = substr($number, 2, $lineJumpPosition-1);
+                $customDelimiter = substr($number, 2, $lineJumpPosition-1);
                 $inputArguments = substr($number, $lineJumpPosition+1, (strlen($number)));
 
-                $inputArguments = preg_split("/[$delimiter]/", $inputArguments);
+                $inputArguments = preg_split("/[$customDelimiter]/", $inputArguments);
 
+                $negativeNumberArray = array_filter($inputArguments, function($x) {
+                    return $x < 0;
+                });
+
+                if (sizeof($negativeNumberArray)>0){
+                    return "Negative not allowed : " . implode(', ', $negativeNumberArray);
+                }
                 foreach ($inputArguments as $index => $argument) {
                     $sum = $sum + $argument;
                 }
@@ -30,6 +37,13 @@ class StringCalculator
                 $inputArguments = preg_split("/[\n,]/", $number);
 
                 $positionOfLastElement = sizeof($inputArguments) - 1;
+
+                $negativeNumberArray = array_filter($inputArguments, function($x) {
+                    return $x < 0;
+                });
+                if (sizeof($negativeNumberArray)>0){
+                    return "Negative not allowed : " . implode(', ', $negativeNumberArray);
+                }
 
                 if ($inputArguments[$positionOfLastElement] == "") {
                     return "Number expected but NOT found";

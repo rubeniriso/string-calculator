@@ -107,5 +107,16 @@ final class StringCalculatorTest extends TestCase
 
         $this->assertEquals(6, $result);
     }
+    /**
+     * @test
+     */
+    public function negative_arguments_should_be_erroneous(){
+        $stringCalculator = new StringCalculator();
 
+        $negativeNumberArguments = "-3,-4,-5";
+
+        $result = $stringCalculator->add($negativeNumberArguments);
+
+        $this->assertEquals("Negative not allowed : -3, -4, -5", $result);
+    }
 }
