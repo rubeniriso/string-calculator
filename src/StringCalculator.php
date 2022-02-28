@@ -17,7 +17,10 @@ class StringCalculator
             }
 
             $inputArguments = preg_split("/[\n,]/", $number);
-            if($inputArguments[3] == ""){
+
+            $positionOfLastElement = sizeof($inputArguments)-1;
+            
+            if($inputArguments[$positionOfLastElement] == ""){
                 return "Number expected but NOT found";
             }
             foreach($inputArguments as $index=>$argument){

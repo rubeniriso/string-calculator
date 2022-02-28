@@ -95,5 +95,4 @@ final class StringCalculatorTest extends TestCase
 
         $this->assertEquals("Number expected but NOT found", $result);
     }
-
 }
