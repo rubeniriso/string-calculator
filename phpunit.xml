@@ -5,7 +5,7 @@
         beStrictAboutOutputDuringTests="true"
         beStrictAboutChangesToGlobalState="true">
     <testsuites>
-        <testsuite name="PHPTestingBoilerplate">
+        <testsuite name="StringCalculatorKata">
             <directory>tests</directory>
         </testsuite>
     </testsuites>

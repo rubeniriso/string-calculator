@@ -22,5 +22,18 @@ final class StringCalculatorTest extends TestCase
 
         $this->assertEquals(0, $result);
     }
+    /**
+     * @test
+     */
+    public function non_zero_argument_should_return_itself()
+    {
+        $stringCalculator = new StringCalculator();
+
+        $emptyString = "1";
+
+        $result = $stringCalculator->add($emptyString);
+
+        $this->assertEquals($emptyString, $result);
+    }
 
 }
