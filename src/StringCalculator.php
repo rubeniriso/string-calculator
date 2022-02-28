@@ -15,7 +15,7 @@ class StringCalculator
                 $inputArguments = preg_split("/[$customDelimiter]/", $inputArguments);
 
                 $negativeNumberArray = array_filter($inputArguments, function($x) {
-                    return $x < 0;
+                    return $x < 0 && $x != "";
                 });
 
                 if (sizeof($negativeNumberArray)>0){
@@ -39,7 +39,7 @@ class StringCalculator
                 $positionOfLastElement = sizeof($inputArguments) - 1;
 
                 $negativeNumberArray = array_filter($inputArguments, function($x) {
-                    return $x < 0;
+                    return $x < 0 && $x != "";
                 });
                 if (sizeof($negativeNumberArray)>0){
                     return "Negative not allowed : " . implode(', ', $negativeNumberArray);
