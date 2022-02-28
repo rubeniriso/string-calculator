@@ -83,5 +83,17 @@ final class StringCalculatorTest extends TestCase
 
         $this->assertEquals("Number expected but '\n' found at position 6", $result);
     }
+    /**
+     * @test
+     */
+    public function an_argument_missing_at_the_end_is_invalid(){
+        $stringCalculator = new StringCalculator();
+
+        $twoArgumentsSeparatedByComma = "1,2,3,";
+
+        $result = $stringCalculator->add($twoArgumentsSeparatedByComma);
+
+        $this->assertEquals("Number expected but NOT found", $result);
+    }
 
 }

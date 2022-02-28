@@ -7,7 +7,6 @@ class StringCalculator
     function add(String $number){
         $sum = 0;
         if($number != ""){
-            print_r($number);
             $occurrenceLineJumpComma = strpos($number, ",\n");
             $occurrenceCommaLineJump = strpos($number, "\n,");
             if ($occurrenceLineJumpComma != false){
@@ -16,9 +15,11 @@ class StringCalculator
             else if ($occurrenceCommaLineJump != false){
                 return "Number expected but '\n' found at position " .  $occurrenceCommaLineJump+1;
             }
-            $inputArguments = preg_split("/[\n,]/", $number);
-            print_r($inputArguments);
 
+            $inputArguments = preg_split("/[\n,]/", $number);
+            if($inputArguments[3] == ""){
+                return "Number expected but NOT found";
+            }
             foreach($inputArguments as $index=>$argument){
                 $sum = $sum + $argument;
             }
