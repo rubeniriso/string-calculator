@@ -29,11 +29,11 @@ final class StringCalculatorTest extends TestCase
     {
         $stringCalculator = new StringCalculator();
 
-        $emptyString = "1";
+        $nonEmptyString = "1";
 
-        $result = $stringCalculator->add($emptyString);
+        $result = $stringCalculator->add($nonEmptyString);
 
-        $this->assertEquals($emptyString, $result);
+        $this->assertEquals($nonEmptyString, $result);
     }
 
 }
