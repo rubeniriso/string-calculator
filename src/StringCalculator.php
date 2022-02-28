@@ -27,7 +27,6 @@ class StringCalculator
                 } else if ($occurrenceCommaLineJump != false) {
                     return "Number expected but '\n' found at position " . $occurrenceCommaLineJump + 1;
                 }
-
                 $inputArguments = preg_split("/[\n,]/", $number);
 
                 $positionOfLastElement = sizeof($inputArguments) - 1;
