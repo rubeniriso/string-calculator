@@ -62,8 +62,7 @@ final class StringCalculatorTest extends TestCase
     /**
      * @test
      */
-    public function arguments_separated_by_linejump_and_comma_should_return_sum()
-    {
+    public function arguments_separated_by_linejump_or_comma_should_return_sum(){
         $stringCalculator = new StringCalculator();
 
         $twoArgumentsSeparatedByComma = "1,2\n3,4\n5.5";
