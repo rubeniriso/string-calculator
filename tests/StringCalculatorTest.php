@@ -95,4 +95,17 @@ final class StringCalculatorTest extends TestCase
 
         $this->assertEquals("Number expected but NOT found", $result);
     }
+    /**
+     * @test
+     */
+    public function inputting_two_forward_bars_at_the_start_should_let_you_set_a_delimiter(){
+        $stringCalculator = new StringCalculator();
+
+        $twoArgumentsSeparatedByComma = "//;\n1;2;3";
+
+        $result = $stringCalculator->add($twoArgumentsSeparatedByComma);
+
+        $this->assertEquals(6, $result);
+    }
+
 }
