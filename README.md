@@ -35,15 +35,15 @@ Create a function add that takes a String and returns a String:
 
 String add(String number)
 
--         The method can take 0, 1 or 2 numbers separated by comma, and returns their sum.
--         An empty string will return “0”.
--         Example of inputs: "", "1", "1.1,2.2".
+- The method can take 0, 1 or 2 numbers separated by comma, and returns their sum.
+- An empty string will return “0”.
+- Example of inputs: "", "1", "1.1,2.2".
 
 #### <a name="manynumbers"/>Many numbers
 
 Allow the add method to handle an unknow number of arguments.
 
-#### <a name"newline"/>Newline as separator
+#### <a name="newline"/>Newline as separator
 
 Allow the add method to handle newlines as separators:
 
