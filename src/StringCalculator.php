@@ -6,6 +6,8 @@ class StringCalculator
 {
     function add(String $number){
         $sum = 0;
+        $errorMessage = "";
+        $thereAreErrors = false;
         if($number != ""){
             if (($number[0]) == "/" && ($number[1]) == "/"){
                 $lineJumpPosition = strpos($number, "\n");
@@ -19,20 +21,19 @@ class StringCalculator
                 });
 
                 if (sizeof($negativeNumberArray)>0){
-                    return "Negative not allowed : " . implode(', ', $negativeNumberArray);
+                    $errorMessage .= "Negative not allowed : " . implode(', ', $negativeNumberArray) . " ";
+                    $thereAreErrors = true;
                 }
-                foreach ($inputArguments as $index => $argument) {
-                    $sum = $sum + $argument;
-                }
-                return $sum;
             }
             else {
                 $occurrenceLineJumpComma = strpos($number, ",\n");
                 $occurrenceCommaLineJump = strpos($number, "\n,");
                 if ($occurrenceLineJumpComma != false) {
-                    return "Number expected but '\n' found at position " . $occurrenceLineJumpComma + 1;
+                    $errorMessage .= "Number expected but '\n' found at position " . $occurrenceLineJumpComma + 1 . " ";
+                    $thereAreErrors = true;
                 } else if ($occurrenceCommaLineJump != false) {
-                    return "Number expected but '\n' found at position " . $occurrenceCommaLineJump + 1;
+                    $errorMessage .= "Number expected but '\n' found at position " . $occurrenceCommaLineJump + 1 . " ";
+                    $thereAreErrors = true;
                 }
                 $inputArguments = preg_split("/[\n,]/", $number);
 
@@ -42,17 +43,23 @@ class StringCalculator
                     return $x < 0 && $x != "";
                 });
                 if (sizeof($negativeNumberArray)>0){
-                    return "Negative not allowed : " . implode(', ', $negativeNumberArray);
+                    $errorMessage .= "Negative not allowed : " . implode(', ', $negativeNumberArray) . " ";
+                    $thereAreErrors = true;
                 }
 
                 if ($inputArguments[$positionOfLastElement] == "") {
-                    return "Number expected but NOT found";
+                    $errorMessage .= "Number expected but NOT found ";
+                    $thereAreErrors = true;
+
                 }
-                foreach ($inputArguments as $index => $argument) {
-                    $sum = $sum + $argument;
-                }
-                return $sum;
             }
+            if ($thereAreErrors){
+                return substr($errorMessage, 0, -1);
+            }
+            foreach ($inputArguments as $index => $argument) {
+                $sum = $sum + $argument;
+            }
+            return $sum;
         }
         return(0);
     }

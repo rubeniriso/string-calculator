@@ -119,4 +119,16 @@ final class StringCalculatorTest extends TestCase
 
         $this->assertEquals("Negative not allowed : -3, -4, -5", $result);
     }
+    /**
+     * @test
+     */
+    public function more_than_one_error_returns_all_errors(){
+        $stringCalculator = new StringCalculator();
+
+        $negativeNumberArguments = "-3,-4,-5,";
+
+        $result = $stringCalculator->add($negativeNumberArguments);
+
+        $this->assertEquals("Negative not allowed : -3, -4, -5 Number expected but NOT found", $result);
+    }
 }
