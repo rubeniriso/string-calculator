@@ -47,4 +47,29 @@ final class StringCalculatorTest extends TestCase
 
         $this->assertEquals(3.3, $result);
     }
+    /**
+     * @test
+     */
+    public function five_arguments_separated_by_comma_should_return_sum(){
+        $stringCalculator = new StringCalculator();
+
+        $twoArgumentsSeparatedByComma = "1,2,3,4,5.5";
+
+        $result = $stringCalculator->add($twoArgumentsSeparatedByComma);
+
+        $this->assertEquals(15.5, $result);
+    }
+    /**
+     * @test
+     */
+    public function arguments_separated_by_linejump_and_comma_should_return_sum()
+    {
+        $stringCalculator = new StringCalculator();
+
+        $twoArgumentsSeparatedByComma = "1,2\n3,4\n5.5";
+
+        $result = $stringCalculator->add($twoArgumentsSeparatedByComma);
+
+        $this->assertEquals(15.5, $result);
+    }
 }

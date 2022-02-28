@@ -5,14 +5,13 @@ namespace RubenIriso\StringCalculatorKata;
 class StringCalculator
 {
     function add(String $number){
+        $sum = 0;
         if($number != ""){
-            $inputArguments = explode(",", $number);
-            $firstNumber = $inputArguments[0];
-            if (isset($inputArguments[1])) {
-                $secondNumber = $inputArguments[1];
-                return $firstNumber + $secondNumber;
+            $inputArguments = preg_split("/[\n,]/", $number);
+            foreach($inputArguments as $argument){
+                $sum = $sum + $argument;
             }
-            return $firstNumber;
+            return $sum;
         }
         return(0);
     }
