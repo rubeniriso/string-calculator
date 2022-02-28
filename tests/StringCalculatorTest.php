@@ -71,4 +71,17 @@ final class StringCalculatorTest extends TestCase
 
         $this->assertEquals(15.5, $result);
     }
+    /**
+     * @test
+     */
+    public function arguments_separated_by_linejump_and_comma_consecutively_is_erroneous(){
+        $stringCalculator = new StringCalculator();
+
+        $twoArgumentsSeparatedByComma = "175.2,\n35";
+
+        $result = $stringCalculator->add($twoArgumentsSeparatedByComma);
+
+        $this->assertEquals("Number expected but '\n' found at position 6", $result);
+    }
+
 }
