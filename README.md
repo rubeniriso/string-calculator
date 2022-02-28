@@ -14,22 +14,22 @@
 6. [Negative numbers](#negativenumbers)
 7. [Multiple errors](#multipleerrors)
 
+
+
+#### [3. Process followed](#processfollowed)
 ------------
 
-
-#### 3. Process followed
-
-###  <a name="languageused"/>Language used
+##  <a name="languageused"/>Language used
 
 PHP
 
-###  <a name="katadescription"/> Kata description:
+##  <a name="katadescription"/> Kata description:
 
-#### <a name="stringcalculator"/>String calculator
+### <a name="stringcalculator"/>String calculator
 
 This classic kata guides you step by step through the implementation of a calculator that receives a String as input. It is a good exercise on refactoring and incremental implementation. It is also a good candidate for practising TDD.
 
-#### <a name="firststep"/>First step
+### <a name="firststep"/>First step
 
 Create a function add that takes a String and returns a String:
 
@@ -39,11 +39,11 @@ String add(String number)
 - An empty string will return “0”.
 - Example of inputs: "", "1", "1.1,2.2".
 
-#### <a name="manynumbers"/>Many numbers
+### <a name="manynumbers"/>Many numbers
 
 Allow the add method to handle an unknow number of arguments.
 
-#### <a name="newline"/>Newline as separator
+### <a name="newline"/>Newline as separator
 
 Allow the add method to handle newlines as separators:
 
@@ -56,7 +56,7 @@ Don't allow the input to end in a separator.
 
 - "1,3," is invalid and should return the message Number expected but EOF found.
 
-#### <a name="customseparators"/> Custom separators
+### <a name="customseparators"/> Custom separators
 
 Allow the add method to handle a different delimiter. To change the delimiter, the beginning of the input will contain a separate line that looks like this:
 
@@ -67,20 +67,20 @@ Allow the add method to handle a different delimiter. To change the delimiter, t
 
 All existing scenarios should work as before.
 
-#### <a name="negativenumbres"/> Negative numbers
+### <a name="negativenumbres"/> Negative numbers
 
 Calling add with negative numbers will return the message "Negative not allowed : " listing all negative numbers that were in the list of numbers.
 
 - "-1,2" is invalid and should return the message "Negative not allowed : -1"
 - "2,-4,-5" is invalid and should return the message "Negative not allowed : -4, -5"
 
-#### <a name="multipleerrors"/>Multiple errors
+### <a name="multipleerrors"/>Multiple errors
 
 Calling add with multiple errors will return all error messages separated by newlines.
 
 - "-1,,2" is invalid and return the message "Negative not allowed : -1\nNumber expected but ',' found at position 3."
 
-###  <a name="processfollowed"/>Process followed
+## <a name="processfollowed"/>Process followed
 
 The process I followed was essentially a classic  TDD cycle, in which I'd write a  failing test for each of the points in the description of the problem, then make the easiest way I could find to make the test pass (commiting that) and then refactoring whatever I thought could be improved/polished.
 ![TDD cycle](https://www.qrry.com/wp-content/uploads/2020/03/test-driven-development-TDD.png "TDD Cycle")

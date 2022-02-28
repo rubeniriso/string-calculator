@@ -9,9 +9,11 @@ class StringCalculator
         $errorMessage = "";
         $thereAreErrors = false;
         $standardDelimiter = "/[\n,]/";
+
         if($number != ""){
             $delimiter = $this->retrieveStringDelimiter($number);
             $inputArguments = $this->retrieveInputArguments($number, $delimiter);
+            
             if ($delimiter == $standardDelimiter){
                 $occurrenceLineJumpComma = strpos($number, ",\n");
                 $occurrenceCommaLineJump = strpos($number, "\n,");
