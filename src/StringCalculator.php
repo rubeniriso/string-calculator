@@ -4,19 +4,19 @@ namespace RubenIriso\StringCalculatorKata;
 
 class StringCalculator
 {
-    function add(String $number){
+    function add(String $numberInput){
         $sum = 0;
         $errorMessage = "";
         $thereAreErrors = false;
         $standardDelimiter = "/[\n,]/";
 
-        if($number != ""){
-            $delimiter = $this->retrieveStringDelimiter($number);
-            $inputArguments = $this->retrieveInputArguments($number, $delimiter);
+        if($numberInput != ""){
+            $delimiter = $this->retrieveStringDelimiter($numberInput);
+            $inputArguments = $this->retrieveInputArguments($numberInput, $delimiter);
             
             if ($delimiter == $standardDelimiter){
-                $occurrenceLineJumpComma = strpos($number, ",\n");
-                $occurrenceCommaLineJump = strpos($number, "\n,");
+                $occurrenceLineJumpComma = strpos($numberInput, ",\n");
+                $occurrenceCommaLineJump = strpos($numberInput, "\n,");
                 if ($occurrenceLineJumpComma != false) {
                     $errorMessage .= "Number expected but '\n' found at position " . $occurrenceLineJumpComma + 1 . " ";
                     $thereAreErrors = true;
