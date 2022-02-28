@@ -53,9 +53,9 @@ final class StringCalculatorTest extends TestCase
     public function five_arguments_separated_by_comma_should_return_sum(){
         $stringCalculator = new StringCalculator();
 
-        $twoArgumentsSeparatedByComma = "1,2,3,4,5.5";
+        $fiveArgumentsSeparatedByComma = "1,2,3,4,5.5";
 
-        $result = $stringCalculator->add($twoArgumentsSeparatedByComma);
+        $result = $stringCalculator->add($fiveArgumentsSeparatedByComma);
 
         $this->assertEquals(15.5, $result);
     }
@@ -65,9 +65,9 @@ final class StringCalculatorTest extends TestCase
     public function arguments_separated_by_linejump_or_comma_should_return_sum(){
         $stringCalculator = new StringCalculator();
 
-        $twoArgumentsSeparatedByComma = "1,2\n3,4\n5.5";
+        $argumentsSeparatedByLinejumpOrComma = "1,2\n3,4\n5.5";
 
-        $result = $stringCalculator->add($twoArgumentsSeparatedByComma);
+        $result = $stringCalculator->add($argumentsSeparatedByLinejumpOrComma);
 
         $this->assertEquals(15.5, $result);
     }
@@ -77,9 +77,9 @@ final class StringCalculatorTest extends TestCase
     public function arguments_separated_by_linejump_and_comma_consecutively_is_erroneous(){
         $stringCalculator = new StringCalculator();
 
-        $twoArgumentsSeparatedByComma = "175.2,\n35";
+        $argumentsSeparatedByLinejumpOrCommaConsecutively = "175.2,\n35";
 
-        $result = $stringCalculator->add($twoArgumentsSeparatedByComma);
+        $result = $stringCalculator->add($argumentsSeparatedByLinejumpOrCommaConsecutively);
 
         $this->assertEquals("Number expected but '\n' found at position 6", $result);
     }
@@ -89,9 +89,9 @@ final class StringCalculatorTest extends TestCase
     public function an_argument_missing_at_the_end_is_invalid(){
         $stringCalculator = new StringCalculator();
 
-        $twoArgumentsSeparatedByComma = "1,2,3,";
+        $argumentsButOneIsMissingAtTheEnd = "1,2,3,";
 
-        $result = $stringCalculator->add($twoArgumentsSeparatedByComma);
+        $result = $stringCalculator->add($argumentsButOneIsMissingAtTheEnd);
 
         $this->assertEquals("Number expected but NOT found", $result);
     }
@@ -101,9 +101,9 @@ final class StringCalculatorTest extends TestCase
     public function inputting_two_forward_bars_at_the_start_should_let_you_set_a_delimiter(){
         $stringCalculator = new StringCalculator();
 
-        $twoArgumentsSeparatedByComma = "//;\n1;2;3";
+        $argumentsWithCustomDelimiter = "//;\n1;2;3";
 
-        $result = $stringCalculator->add($twoArgumentsSeparatedByComma);
+        $result = $stringCalculator->add($argumentsWithCustomDelimiter);
 
         $this->assertEquals(6, $result);
     }
