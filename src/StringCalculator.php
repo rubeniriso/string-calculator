@@ -57,7 +57,7 @@ class StringCalculator
     {
         if (($number[0]) == "/" && ($number[1]) == "/") {
             $lineJumpPosition = strpos($number, "\n");
-            $customDelimiter = substr($number, 2, $lineJumpPosition-1);
+            $customDelimiter = substr($number, 2, $lineJumpPosition-2);
             return $customDelimiter;
         }
         return "/[\n,]/";
@@ -69,7 +69,7 @@ class StringCalculator
         else {
             $lineJumpPosition = strpos($number, "\n");
             $inputArguments = substr($number, $lineJumpPosition + 1, (strlen($number)));
-            $inputArguments = preg_split("/[$delimiter]/", $inputArguments);
+            $inputArguments = preg_split("/[$delimiter]/", $inputArguments, 0,PREG_SPLIT_NO_EMPTY) ;
         }
         return $inputArguments;
     }
